@@ -1,10 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import store from './store';
 
-const App = () => {
-  return <div>
-    Welcome to Wowflux Studio Panel...
-  </div>
-}
+/* Components */
+import Home from './Home/Home';
 
-ReactDOM.render(<App />, document.querySelector('#root'))
+ReactDOM.render(
+  <Provider store={store}>
+    <BrowserRouter>
+      <div>
+        <Route exact path="/" component={Home} />
+      </div>
+    </BrowserRouter>
+  </Provider>
+  , document.querySelector('#root'))
